@@ -15,7 +15,7 @@
         <Grid.ColumnDefinitions>
         </Grid.ColumnDefinitions>
         <StackPanel HorizontalAlignment="Left" Grid.Column="0">
-            <TabControl Background="Transparent" Width="700" BorderThickness="0">
+            <TabControl Background="Transparent" Width="800" BorderThickness="0">
                 <TabItem>
                     <TabItem.Header>
                         <StackPanel Orientation="Horizontal">
@@ -27,7 +27,7 @@
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="200"/>
                                 <ColumnDefinition Width="200"/>
-                                <ColumnDefinition Width="340"/>
+                                <ColumnDefinition Width="400"/>
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
                                 <RowDefinition/>
@@ -38,14 +38,14 @@
                             <TextBlock FontSize="14" Foreground="White">Количество автосамосвалов</TextBlock>
                             <TextBox Background="LightGray"
                                      Text="{Binding SelectedPerfomance.CountTrucks}"
-                                     Width="150" Height="25" HorizontalAlignment="Left" Margin="0 25 0 10"/>
+                                     Width="150" Height="35" HorizontalAlignment="Left" Margin="0 25 0 10"/>
                             <TextBlock Grid.Row="1" FontSize="14" Foreground="White">Количество бульдозеров</TextBlock>
                             <TextBox Grid.Row="1" Background="LightGray" 
                                      Text="{Binding SelectedPerfomance.CountBuldozers}"
-                                     Width="150" Height="25" HorizontalAlignment="Left" Margin="0 25 0 10"/>
+                                     Width="150" Height="35" HorizontalAlignment="Left" Margin="0 25 0 10"/>
                             <TextBlock Grid.Row="2" FontSize="14" Foreground="White">Модель бульдозера</TextBlock>
                             <ComboBox Grid.Row="2" 
-                                      Background="LightGray" Width="150" Height="25"
+                                      Background="LightGray" Width="150" Height="35"
                                       SelectedItem="{Binding SelectedModel}"
                                       HorizontalAlignment="Left" 
                                       ItemsSource="{Binding ListModels}"
@@ -53,19 +53,19 @@
                                       Margin="0 25 0 10"/>
                             <TextBlock Grid.Row="0" Grid.Column="1" FontSize="14" Foreground="White">Длина передвижения грунта, м</TextBlock>
                             <TextBox
-                                Grid.Row="0" Grid.Column="1" Background="LightGray" Width="150" Height="25" 
+                                Grid.Row="0" Grid.Column="1" Background="LightGray" Width="150" Height="35" 
                                 Text="{Binding SelectedPerfomance.LengthPeredvGrunta}"
                                 HorizontalAlignment="Left" Margin="0 25 0 10"/>
                             <TextBlock Grid.Row="1" Grid.Column="1" FontSize="14" Foreground="White">Длина отвала бульдозера, м</TextBlock>
                             <TextBox 
                                 Text="{Binding SelectedModel.Длина_отвала}"
                                 IsReadOnly="True"
-                                Grid.Row="1" Grid.Column="1" Background="LightGray" Width="150" Height="25" HorizontalAlignment="Left" Margin="0 25 0 10"/>
+                                Grid.Row="1" Grid.Column="1" Background="LightGray" Width="150" Height="35" HorizontalAlignment="Left" Margin="0 25 0 10"/>
                             <TextBlock Grid.Row="2" Grid.Column="1" FontSize="14" Foreground="White">Высота отвала бульдозера, м</TextBlock>
                             <TextBox 
                                 Text="{Binding SelectedModel.Высота_отвала}"
                                 IsReadOnly="True"
-                                Grid.Row="2" Grid.Column="1" Background="LightGray" Width="150" Height="25" HorizontalAlignment="Left" Margin="0 25 0 10"></TextBox>
+                                Grid.Row="2" Grid.Column="1" Background="LightGray" Width="150" Height="35" HorizontalAlignment="Left" Margin="0 25 0 10"></TextBox>
                             <Button Height="35" 
                                     Width="200" Grid.Row="3" 
                                     Margin="0 15 0 0"
@@ -75,8 +75,8 @@
                                        Margin="0 0 40 0" 
                                        Grid.Column="2" HorizontalAlignment="Center"/>
                             <ListBox Grid.Column="2" Grid.RowSpan="3"
-                                     Background="White" Margin="0 30 40 0" 
-                                     Width="280" Height="262" HorizontalAlignment="Center">
+                                     Background="White" Margin="0 30 10 0" 
+                                     Width="350" Height="262" HorizontalAlignment="Center">
                                 <TextBlock Text="Количество бульдозеров" FontSize="16"/>
                                 <ListBoxItem Content="{Binding SelectedPerfomance.CountBuldozers}" Width="100" Height="25" HorizontalAlignment="Left"/>
                                 <TextBlock Text="Рабочий цикл бульдозера" FontSize="16"/>
@@ -87,8 +87,7 @@
                                 <ListBoxItem Content="{Binding SelectedPerfomance.PerfomanceAllBuldozers}"
                                              ContentStringFormat="{}{0} м^3/смена"
                                              Width="150" Height="25" HorizontalAlignment="Left"/>
-                                <TextBlock Text="Необходимое количество" FontSize="16"/>
-                                <TextBlock Text="бульдозеров" FontSize="16"/>
+                                <TextBlock Text="Необходимое количество бульдозеров" FontSize="16"/>
                                 <ListBoxItem Content="{Binding SelectedPerfomance.NeedfullCountBuldozers}" Width="100" Height="25" HorizontalAlignment="Left"/>
                             </ListBox>
                         </Grid>

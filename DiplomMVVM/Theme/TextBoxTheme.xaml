@@ -9,7 +9,7 @@
         <Setter Property="Padding" Value="5.2 3.5"/>
         <Setter Property="Cursor" Value="IBeam"/>
         <Setter Property="FontFamily" Value="Poppins"/>
-        <Setter Property="Foreground" Value="#9295A5"/>
+        <Setter Property="Foreground" Value="Black"/>
         <Setter Property="BorderThickness" Value="3"/>
         <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
         <Setter Property="HorizontalContentAlignment" Value="Left"/>
@@ -26,7 +26,7 @@
                             BorderThickness="{TemplateBinding BorderThickness}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             SnapsToDevicePixels="True">
-                        <Grid Margin="{TemplateBinding Padding}">
+                        <Grid Margin="{TemplateBinding Padding}" Cursor="">
                             <ScrollViewer x:Name="PART_ContentHost"
                                 Focusable="False"
                                 HorizontalScrollBarVisibility="Hidden"
@@ -37,7 +37,7 @@
                                    VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                    Visibility="Collapsed"
-                                   Foreground="{TemplateBinding Foreground}"
+                                   Foreground="#9295A5"
                                    Padding="{TemplateBinding Padding}"/>
                         </Grid>
                     </Border>
