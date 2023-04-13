@@ -61,8 +61,10 @@ namespace DiplomMVVM.MVVM.Models
         public double CF_BUKS { get; set; }
         public double lengthRezaniya { get; set; }
         public double Vprizm { get; set; }
-        public double lengthOtvala { get; set; }
-        public double heightOtvala { get; set; }
+        private double? _lengthOtvala { get; set; }
+        private double? _heightOtvala { get; set; }
+        public double? lengthOtvala { get => _lengthOtvala; set { _lengthOtvala = value; OnPropertyChanged(); } }
+        public double? heightOtvala { get => _heightOtvala; set { _heightOtvala = value; OnPropertyChanged(); } }
         public const double CF_POPR = 0.8;
         public double CF_USE { get; set; }
         public double CF_H { get; set; }
@@ -76,6 +78,7 @@ namespace DiplomMVVM.MVVM.Models
             set 
             { 
                 _lengthPeredvGrunta = value;
+                OnPropertyChanged();
 
             } 
         }
@@ -124,8 +127,8 @@ namespace DiplomMVVM.MVVM.Models
             CF_BUKS = 0.18 + rnd.NextDouble() * (0.22 - 0.18);
             CF_H = 0.08 + rnd.NextDouble() * (0.25 - 0.08);
             CF_R = 1.15 + rnd.NextDouble() * (1.3 - 1.15);
-            Vprizm = ((lengthOtvala * (Math.Pow(heightOtvala, 2)) / 2) * CF_POPR);
-            lengthRezaniya = Vprizm / ((lengthOtvala * CF_H) * CF_R);
+            Vprizm = (double)(lengthOtvala * Math.Pow((double)heightOtvala, 2) / 2 * CF_POPR);
+            lengthRezaniya = (double)(Vprizm / ((lengthOtvala * CF_H) * CF_R));
             T1 = (lengthRezaniya) / (FIRST_SPEED * (1 - CF_BUKS));
             vPeredvGrunta = SECOND_SPEED * (1 - CF_BUKS);
             T2 = (double)((LengthPeredvGrunta - lengthRezaniya) / (vPeredvGrunta));

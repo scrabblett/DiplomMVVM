@@ -22,16 +22,7 @@ namespace DiplomMVVM.MVVM.ViewModel
                 OnPropertyChanged();
             }
         }
-        private Бульдозер _userModel = new Бульдозер();
-        public Бульдозер UserModel
-        {
-            get => _userModel;
-            set
-            {
-                _userModel = value;
-                OnPropertyChanged();
-            }
-        }
+        
         private Perfomance _selectedPerfomance = new Perfomance();
         public Perfomance SelectedPerfomance
         {
@@ -42,13 +33,14 @@ namespace DiplomMVVM.MVVM.ViewModel
                 OnPropertyChanged();
             }
         }
-        private Perfomance _userPerfomance { get; set; }
+        private Perfomance _userPerfomance = new Perfomance();
         public Perfomance UserPerfomance
         {
             get => _userPerfomance;
             set
             {
                 _userPerfomance = value;
+                OnPropertyChanged();
             }
         }
 
@@ -78,6 +70,13 @@ namespace DiplomMVVM.MVVM.ViewModel
                 SelectedPerfomance.CalculateTimeWork();
                 SelectedPerfomance.CalculatePerfomance();
                 
+            });
+
+            CalculateUserModelPerfomance = new RelayCommand(o =>
+            {
+                UserPerfomance.CalculateTimeWork();
+                UserPerfomance.CalculatePerfomance();
+
             });
 
             #endregion
