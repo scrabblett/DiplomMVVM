@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:DiplomMVVM"
         xmlns:viewModel="clr-namespace:DiplomMVVM.MVVM.ViewModel"
         mc:Ignorable="d"
-        Title="Расчет параметров отвалообразования" Height="600" Width="1120"
+        Title="Расчет параметров отвалообразования" Height="600" Width="1000"
         WindowStyle="None"
         AllowsTransparency="True"
         ResizeMode="NoResize"

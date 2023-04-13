@@ -12,6 +12,7 @@
                 <ResourceDictionary Source="Theme/MenuButtonTheme.xaml"/>
                 <ResourceDictionary Source="Images/Icons.xaml"/>
                 <ResourceDictionary Source="Theme/DataGridTheme.xaml"/>
+                <ResourceDictionary Source="Theme/TextBoxTheme.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             <DataTemplate DataType="{x:Type viewModel:ParametersViewModel}">
                 <view:ParametersView/>
@@ -19,6 +20,7 @@
             <DataTemplate DataType="{x:Type viewModel:BuldozersViewModel}">
                 <view:BuldozersView/>
             </DataTemplate>
+            
         </ResourceDictionary>
     </Application.Resources>
 </Application>

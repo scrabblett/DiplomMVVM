@@ -154,11 +154,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Theme\Dictionary1.xaml">
+    <Page Include="Theme\MenuButtonTheme.xaml" />
+    <Page Include="Theme\TextBoxTheme.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Theme\MenuButtonTheme.xaml" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\arrow-refresh-reload-icon-29.png" />
