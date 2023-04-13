@@ -77,10 +77,7 @@ namespace DiplomMVVM.MVVM.ViewModel
                 SelectedPerfomance.heightOtvala = (double)SelectedModel.Высота_отвала;
                 SelectedPerfomance.CalculateTimeWork();
                 SelectedPerfomance.CalculatePerfomance();
-                MessageBox.Show(
-                    (SelectedPerfomance.PerfomanceBuldozer * SelectedPerfomance.CountBuldozers) < (SelectedPerfomance.TruckPerfomance * SelectedPerfomance.CountTrucks)
-                        ? $"Недостаточное количество бульдозеров для планирования отвала!\nРабочий цикл бульдозера составит {SelectedPerfomance.Twork} секунд \nПроизводительность бульдозера(ов) составит {SelectedPerfomance.PerfomanceBuldozer * SelectedPerfomance.CountBuldozers} м^3/смена \nПроизводительность автосамосвала(ов) составит {SelectedPerfomance.CountTrucks * SelectedPerfomance.TruckPerfomance} м^3/смена"
-                        : $"Рабочий цикл бульдозера составит {SelectedPerfomance.Twork} секунд \nПроизводительность бульдозера(ов) составит {SelectedPerfomance.PerfomanceBuldozer * SelectedPerfomance.CountBuldozers} м^3/смена \nПроизводительность автосамосвала(ов) составит {SelectedPerfomance.CountTrucks * SelectedPerfomance.TruckPerfomance} м^3/смена");
+                
             });
 
             #endregion

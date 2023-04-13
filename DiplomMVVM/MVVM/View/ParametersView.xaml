@@ -75,13 +75,21 @@
                             <ListBox Grid.Column="2" Grid.RowSpan="3"
                                      Background="White" Margin="0 30 40 0" 
                                      Width="280" Height="262" HorizontalAlignment="Center">
+                                <ListBox.ItemContainerStyle>
+                                    <Style TargetType="ListBoxItem">
+                                        <Setter Property="Focusable" Value="False" />
+                                    </Style>
+                                </ListBox.ItemContainerStyle>
                                 <TextBlock Text="Количество бульдозеров" FontSize="16"/>
                                 <ListBoxItem Content="{Binding SelectedPerfomance.CountBuldozers}" Width="100" Height="25" HorizontalAlignment="Left"/>
                                 <TextBlock Text="Рабочий цикл бульдозера" FontSize="16"/>
-                                <ListBoxItem Content="{Binding SelectedPerfomance.Twork}" 
+                                <ListBoxItem Content="{Binding SelectedPerfomance.Twork}"
+                                             ContentStringFormat="{}{0} секунд"
                                              Width="100" Height="25" HorizontalAlignment="Left"/>
                                 <TextBlock Text="Производительность бульдозеров" FontSize="16"/>
-                                <ListBoxItem Content="{Binding SelectedPerfomance.PerfomanceAllBuldozers}" Width="100" Height="25" HorizontalAlignment="Left"/>
+                                <ListBoxItem Content="{Binding SelectedPerfomance.PerfomanceAllBuldozers}"
+                                             ContentStringFormat="{}{0} м^3/смена"
+                                             Width="150" Height="25" HorizontalAlignment="Left"/>
                                 <TextBlock Text="Необходимое количество" FontSize="16"/>
                                 <TextBlock Text="бульдозеров" FontSize="16"/>
                                 <ListBoxItem Content="{Binding SelectedPerfomance.NeedfullCountBuldozers}" Width="100" Height="25" HorizontalAlignment="Left"/>
