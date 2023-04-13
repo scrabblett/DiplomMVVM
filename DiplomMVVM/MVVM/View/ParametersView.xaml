@@ -71,15 +71,12 @@
                                     Margin="0 15 0 0"
                                     Command="{Binding CalculateSelectedModelPerfomance}"
                                     Content="Рассчитать" HorizontalAlignment="Left"/>
-                            <TextBlock FontSize="16" Foreground="White" Text="Результаты расчётов" Grid.Column="2" HorizontalAlignment="Center"/>
+                            <TextBlock FontSize="16" Foreground="White" Text="Результаты расчётов"
+                                       Margin="0 0 40 0" 
+                                       Grid.Column="2" HorizontalAlignment="Center"/>
                             <ListBox Grid.Column="2" Grid.RowSpan="3"
                                      Background="White" Margin="0 30 40 0" 
                                      Width="280" Height="262" HorizontalAlignment="Center">
-                                <ListBox.ItemContainerStyle>
-                                    <Style TargetType="ListBoxItem">
-                                        <Setter Property="Focusable" Value="False" />
-                                    </Style>
-                                </ListBox.ItemContainerStyle>
                                 <TextBlock Text="Количество бульдозеров" FontSize="16"/>
                                 <ListBoxItem Content="{Binding SelectedPerfomance.CountBuldozers}" Width="100" Height="25" HorizontalAlignment="Left"/>
                                 <TextBlock Text="Рабочий цикл бульдозера" FontSize="16"/>
