@@ -4,18 +4,21 @@
              xmlns:local="clr-namespace:DiplomMVVM"
              xmlns:view="clr-namespace:DiplomMVVM.MVVM.View"
              xmlns:viewModel="clr-namespace:DiplomMVVM.MVVM.ViewModel"
-             StartupUri="/MVVM/View/MainWindow.xaml">
+             StartupUri="/MVVM/View/MainWindow.xaml"
+    xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2">
     <Application.Resources>
-         <ResourceDictionary>
-             <ResourceDictionary.MergedDictionaries>
-                 <ResourceDictionary Source="Theme/MenuButtonTheme.xaml"></ResourceDictionary>
-             </ResourceDictionary.MergedDictionaries>
-             <DataTemplate DataType="{x:Type viewModel:ParametersViewModel}">
-                 <view:ParametersView/>
-             </DataTemplate>
-             <DataTemplate DataType="{x:Type viewModel:BuldozersViewModel}">
-                 <view:BuldozersView/>
-             </DataTemplate>
-         </ResourceDictionary>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Theme/MenuButtonTheme.xaml"/>
+                <ResourceDictionary Source="Images/Icons.xaml"/>
+                <ResourceDictionary Source="Theme/DataGridTheme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <DataTemplate DataType="{x:Type viewModel:ParametersViewModel}">
+                <view:ParametersView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:BuldozersViewModel}">
+                <view:BuldozersView/>
+            </DataTemplate>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

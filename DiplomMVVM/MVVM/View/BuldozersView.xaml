@@ -17,12 +17,12 @@
             <RowDefinition />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="450"/>
+            <ColumnDefinition Width="550"/>
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         
-        <DataGrid Grid.Column="0" Grid.RowSpan="3"
-                  Width="440" Height="275" HorizontalAlignment="Center"
+        <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" Grid.Column="0" Grid.RowSpan="3"
+                  Width="540" Height="275" HorizontalAlignment="Left"
                   VerticalAlignment="Top"
                   Margin="0 50 0 0"
                   Name="DataGridBuldozers"
@@ -32,16 +32,16 @@
             SelectedItem="{Binding SelectedBuldozer}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Модель бульдозера" IsReadOnly="True"
-                                    Width="200"
+                                    Width="190"
                                     Binding="{Binding Модель,
                         Mode=TwoWay}" >
                 </DataGridTextColumn>
                 <DataGridTextColumn Header="Длина отвала, м" IsReadOnly="True"
-                                    Width="120"
+                                    Width="165"
                                     Binding="{Binding Длина_отвала,Mode=TwoWay}" >
                 </DataGridTextColumn>
                 <DataGridTextColumn Header="Высота отвала, м" IsReadOnly="True"
-                                    Width="110"
+                                    Width="175"
                                     Binding="{Binding Высота_отвала,
                         Mode=TwoWay}" >
                 </DataGridTextColumn>
