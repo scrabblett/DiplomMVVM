@@ -1,0 +1,141 @@
+﻿<UserControl x:Class="DiplomMVVM.MVVM.View.BuldozersView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:DiplomMVVM.MVVM.View"
+             xmlns:viewModel="clr-namespace:DiplomMVVM.MVVM.ViewModel"
+             mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="800"
+             Background="#1B121B">
+    <UserControl.DataContext>
+        <viewModel:BuldozersViewModel/>
+    </UserControl.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="275"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="450"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        
+        <DataGrid Grid.Column="0" Grid.RowSpan="3"
+                  Width="440" Height="275" HorizontalAlignment="Center"
+                  VerticalAlignment="Top"
+                  Margin="0 50 0 0"
+                  Name="DataGridBuldozers"
+                  AutoGenerateColumns="False"
+                  ItemsSource="{Binding ListBuldozers}"
+                  Cursor="Hand"
+            SelectedItem="{Binding SelectedBuldozer}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Модель бульдозера" IsReadOnly="True"
+                                    Width="200"
+                                    Binding="{Binding Модель,
+                        Mode=TwoWay}" >
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Длина отвала, м" IsReadOnly="True"
+                                    Width="120"
+                                    Binding="{Binding Длина_отвала,Mode=TwoWay}" >
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Высота отвала, м" IsReadOnly="True"
+                                    Width="110"
+                                    Binding="{Binding Высота_отвала,
+                        Mode=TwoWay}" >
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Grid.RowSpan="3" Grid.Column="1" Margin="15 0 0 0">
+            <TextBlock Grid.Column="1" Grid.Row="0" Text="Данные бульдозера"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Left"
+                       Foreground="White"
+                       Margin="0 10 0 13"
+                       FontSize="22"/>
+            <TabControl  Background="#1B121B"
+                         Width="250" HorizontalAlignment="Left"
+                         BorderThickness="0">
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Margin="3">Добавление</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <StackPanel Grid.RowSpan="3" Grid.Column="1" Width="200" HorizontalAlignment="Left">
+                        <TextBlock Grid.Column="1" Grid.Row="0" Text="Модель бульдозера"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Foreground="White"
+                                   Margin="0 20 0 0"
+                                   FontSize="16"/>
+                        <TextBox Height="22" Width="200" VerticalAlignment="Center"
+                                 Text="{Binding NewBuldozer.Модель,Mode=TwoWay}"
+                                 HorizontalAlignment="Center"/>
+                        <TextBlock Grid.Column="1" Grid.Row="0" Text="Длина отвала бульдозера"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Foreground="White"
+                                   Margin="0 5 0 0"
+                                   FontSize="16"/>
+                        <TextBox Height="22" Width="200" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                 Text="{Binding NewBuldozer.Длина_отвала,Mode=TwoWay}"/>
+                        <TextBlock Grid.Column="1" Grid.Row="0" Text="Высота отвала бульдозера"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Foreground="White"
+                                   Margin="0 5 0 0"
+                                   FontSize="16"/>
+                        <TextBox Height="22" Width="200" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                 Text="{Binding NewBuldozer.Высота_отвала,Mode=TwoWay }"/>
+                        <Button Width="150" Height="30" Margin="0 15 0 0"
+                                Content="Добавить" Command="{Binding AddBuldozerViewCommand}"/>
+                    </StackPanel>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Margin="3">Редактирование</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <StackPanel Grid.RowSpan="3" Grid.Column="1" Width="200" HorizontalAlignment="Left">
+                        <TextBlock Grid.Column="1" Grid.Row="0" Text="Модель бульдозера"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Foreground="White"
+                                   Margin="0 20 0 0"
+                                   FontSize="16"/>
+            <TextBox Height="22" Width="200" VerticalAlignment="Center"
+                     Text="{Binding SelectedBuldozer.Модель,Mode=TwoWay}"
+                     HorizontalAlignment="Center"/>
+            <TextBlock Grid.Column="1" Grid.Row="0" Text="Длина отвала бульдозера"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       Foreground="White"
+                       Margin="0 5 0 0"
+                       FontSize="16"/>
+            <TextBox Height="22" Width="200" VerticalAlignment="Center" HorizontalAlignment="Center"
+                     Text="{Binding SelectedBuldozer.Длина_отвала,Mode=TwoWay}"/>
+            <TextBlock Grid.Column="1" Grid.Row="0" Text="Высота отвала бульдозера"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       Foreground="White"
+                       Margin="0 5 0 0"
+                       FontSize="16"/>
+            <TextBox Height="22" Width="200" VerticalAlignment="Center" HorizontalAlignment="Center"
+                     Text="{Binding SelectedBuldozer.Высота_отвала,Mode=TwoWay }"/>
+            <Button Width="150" Height="30" Margin="0 15 0 0" Content="Сохранить" Command="{Binding SaveChangesBuldozerViewCommand}"/>
+        </StackPanel>
+                </TabItem.Content>
+            </TabItem>
+        </TabControl>
+        </StackPanel>
+        <Button Grid.Row="1" Grid.Column="0" Width="150" Height="35" Content="Удалить" 
+                HorizontalAlignment="Left" Margin="5 0 0 0"
+                Command="{Binding DeleteBuldozerViewCommand}"/>
+    </Grid>
+</UserControl>
