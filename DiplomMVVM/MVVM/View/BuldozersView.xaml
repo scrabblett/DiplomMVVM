@@ -113,7 +113,8 @@
             </TabItem>
         </TabControl>
         </StackPanel>
-        <Button Grid.Row="1" Grid.Column="0" Width="150" Height="35" Content="Удалить" 
+        <Button Grid.Row="1" Grid.Column="0" Width="150" Height="35" 
+                Content="Удалить" 
                 HorizontalAlignment="Left" Margin="10 0 0 0"
                 Command="{Binding DeleteBuldozerViewCommand}"/>
     </Grid>
