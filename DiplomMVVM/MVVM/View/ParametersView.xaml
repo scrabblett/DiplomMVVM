@@ -19,7 +19,7 @@
                 <TabItem>
                     <TabItem.Header>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Margin="3">Выбранная модель</TextBlock>
+                            <TextBlock Margin="3">Существующая модель</TextBlock>
                         </StackPanel>
                     </TabItem.Header>
                     <TabItem.Content>
