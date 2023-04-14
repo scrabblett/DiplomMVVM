@@ -19,7 +19,7 @@
     <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
     <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
     <Style TargetType="{x:Type Button}">
-        <Setter Property="Background" Value="#CB6586"/>
+        <Setter Property="Background" Value="#79759B"/>
         <Setter Property="Padding" Value="12 6 12 6"/>
         <Setter Property="FontSize" Value="14"/>
         <Setter Property="FontFamily" Value="Poppins"/>

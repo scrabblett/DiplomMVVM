@@ -63,10 +63,10 @@
                 <Setter Property="SelectionBrush" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
             </MultiTrigger>
             <Trigger Property="IsKeyboardFocused" Value="True">
-                <Setter Property="BorderBrush"  Value="#0095B6"/>
+                <Setter Property="BorderBrush"  Value="#79759B"/>
             </Trigger>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="BorderBrush" Value="#0095B6"/>
+                <Setter Property="BorderBrush" Value="#4F4E31"/>
             </Trigger>
         </Style.Triggers>
     </Style>

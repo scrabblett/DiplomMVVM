@@ -16,7 +16,7 @@ namespace DiplomMVVM.MVVM.ViewModel
     {
         public RelayCommand AddBuldozerViewCommand { get; set; }
         public RelayCommand DeleteBuldozerViewCommand { get; set; }
-        public RelayCommand RefreshBuldozerViewCommand { get; set; }
+        
         public RelayCommand SaveChangesBuldozerViewCommand { get; set; }
         private Бульдозер _newBuldozer = new Бульдозер();
        

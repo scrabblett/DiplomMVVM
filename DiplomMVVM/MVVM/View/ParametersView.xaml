@@ -7,7 +7,7 @@
              xmlns:viewModel="clr-namespace:DiplomMVVM.MVVM.ViewModel"
              mc:Ignorable="d"
              d:DesignHeight="450" d:DesignWidth="800"
-             Background="#1B121B">
+             Background="#A7A478">
     <UserControl.DataContext>
         <viewModel:ParametersViewModel/>
     </UserControl.DataContext>
@@ -26,7 +26,7 @@
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="200"/>
-                                <ColumnDefinition Width="200"/>
+                                <ColumnDefinition Width="250"/>
                                 <ColumnDefinition Width="400"/>
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
@@ -35,37 +35,41 @@
                                 <RowDefinition/>
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
-                            <TextBlock FontSize="14" Foreground="White">Количество автосамосвалов</TextBlock>
                             <TextBox Background="LightGray"
+                                     Tag="Количество автосамосвалов"
                                      Text="{Binding SelectedPerfomance.CountTrucks}"
-                                     Width="150" Height="35" HorizontalAlignment="Left" Margin="0 25 0 10"/>
-                            <TextBlock Grid.Row="1" FontSize="14" Foreground="White">Количество бульдозеров</TextBlock>
+                                     Width="200" Height="35" HorizontalAlignment="Left" Margin="0 25 0 10"/>
                             <TextBox Grid.Row="1" Background="LightGray" 
+                                     Tag="Количество бульдозеров"
                                      Text="{Binding SelectedPerfomance.CountBuldozers}"
-                                     Width="150" Height="35" HorizontalAlignment="Left" Margin="0 25 0 10"/>
+                                     Width="200" Height="35" HorizontalAlignment="Left" Margin="0 25 0 10"/>
                             <TextBlock Grid.Row="2" FontSize="14" Foreground="White">Модель бульдозера</TextBlock>
-                            <ComboBox Grid.Row="2" 
-                                      Background="LightGray" Width="150" Height="35"
+                            <ComboBox Grid.Row="2" Name="test"
+                                      Tag="Модель бульдозера"
+                                      Background="LightGray" Width="200" Height="35"
                                       SelectedItem="{Binding SelectedModel}"
                                       HorizontalAlignment="Left" 
                                       ItemsSource="{Binding ListModels}"
                                       DisplayMemberPath="Модель"
                                       Margin="0 25 0 10"/>
-                            <TextBlock Grid.Row="0" Grid.Column="1" FontSize="14" Foreground="White">Длина передвижения грунта, м</TextBlock>
                             <TextBox
-                                Grid.Row="0" Grid.Column="1" Background="LightGray" Width="150" Height="35" 
+                                Tag="Длина передвижения грунта, м"
+                                Grid.Row="0" Grid.Column="1" Background="LightGray" Width="200" Height="35" 
                                 Text="{Binding SelectedPerfomance.LengthPeredvGrunta}"
-                                HorizontalAlignment="Left" Margin="0 25 0 10"/>
-                            <TextBlock Grid.Row="1" Grid.Column="1" FontSize="14" Foreground="White">Длина отвала бульдозера, м</TextBlock>
+                                HorizontalAlignment="Left" Margin="20 25 0 10"/>
                             <TextBox 
+                                Tag="Длина отвала бульдозера, м"
                                 Text="{Binding SelectedModel.Длина_отвала}"
                                 IsReadOnly="True"
-                                Grid.Row="1" Grid.Column="1" Background="LightGray" Width="150" Height="35" HorizontalAlignment="Left" Margin="0 25 0 10"/>
-                            <TextBlock Grid.Row="2" Grid.Column="1" FontSize="14" Foreground="White">Высота отвала бульдозера, м</TextBlock>
+                                Grid.Row="1" Grid.Column="1" 
+                                Background="LightGray" Width="200" Height="35" HorizontalAlignment="Left" 
+                                Margin="20 25 0 10"/>
                             <TextBox 
+                                Tag="Высота отвала бульдозера, м"
                                 Text="{Binding SelectedModel.Высота_отвала}"
                                 IsReadOnly="True"
-                                Grid.Row="2" Grid.Column="1" Background="LightGray" Width="150" Height="35" HorizontalAlignment="Left" Margin="0 25 0 10"></TextBox>
+                                Grid.Row="2" Grid.Column="1" Background="LightGray" Width="200" 
+                                Height="35" HorizontalAlignment="Left" Margin="20 25 0 10"></TextBox>
                             <Button Height="35" 
                                     Width="200" Grid.Row="3" 
                                     Margin="0 15 0 0"
@@ -75,8 +79,9 @@
                                        Margin="0 0 40 0" 
                                        Grid.Column="2" HorizontalAlignment="Center"/>
                             <ListBox Grid.Column="2" Grid.RowSpan="3"
-                                     Background="White" Margin="0 30 10 0" 
-                                     Width="350" Height="262" HorizontalAlignment="Center">
+                                     
+                                     Background="White" Margin="0 30 80 0" 
+                                     Width="310" Height="262" HorizontalAlignment="Center">
                                 <TextBlock Text="Количество бульдозеров" FontSize="16"/>
                                 <ListBoxItem Content="{Binding SelectedPerfomance.CountBuldozers}" Width="100" Height="25" HorizontalAlignment="Left"/>
                                 <TextBlock Text="Рабочий цикл бульдозера" FontSize="16"/>
@@ -103,8 +108,8 @@
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="200"/>
-                                <ColumnDefinition Width="200"/>
-                                <ColumnDefinition Width="340"/>
+                                <ColumnDefinition Width="250"/>
+                                <ColumnDefinition Width="400"/>
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
                                 <RowDefinition/>
@@ -112,39 +117,39 @@
                                 <RowDefinition/>
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
-                            <TextBlock FontSize="14" Foreground="White" Grid.ColumnSpan="2">Количество автосамосвалов</TextBlock>
                             <TextBox Background="LightGray"
+                                     Tag="Количество автосамосвалов"
                                      Text="{Binding UserPerfomance.CountTrucks}"
-                                     Width="150" Height="25" HorizontalAlignment="Left" Margin="0,44,0,28" Grid.ColumnSpan="2"/>
-                            <TextBlock FontSize="14" Foreground="White" Grid.ColumnSpan="2" Margin="0,97,0,97" Grid.RowSpan="3">Количество бульдозеров</TextBlock>
+                                     Width="190" Height="35" HorizontalAlignment="Left" Margin="0,44,0,28" Grid.ColumnSpan="2"/>
                             <TextBox Grid.Row="1" Background="LightGray" 
+                                     Tag="Количество бульдозеров"
                                      Text="{Binding UserPerfomance.CountBuldozers}"
-                                     Width="150" Height="25" HorizontalAlignment="Left" Margin="0,44,0,29" Grid.ColumnSpan="2"/>
-                            <TextBlock Grid.Row="2" Grid.Column="0" FontSize="14" Foreground="White" Grid.ColumnSpan="2">Длина передвижения грунта, м</TextBlock>
+                                     Width="190" Height="35" HorizontalAlignment="Left" Margin="0,44,0,29" Grid.ColumnSpan="2"/>
                             <TextBox
-                                Grid.Row="2" Grid.Column="0" Background="LightGray" Width="150" Height="25" 
+                                Tag="Длина передвижения грунта, м"
+                                Grid.Row="2" Grid.Column="0" Background="LightGray" Width="190" Height="35" 
                                 Text="{Binding UserPerfomance.LengthPeredvGrunta}"
                                 HorizontalAlignment="Left" Margin="0,43,0,29" Grid.ColumnSpan="2"/>
-                            <TextBlock Grid.Row="0" Grid.Column="1" FontSize="14" Foreground="White">Длина отвала бульдозера, м</TextBlock>
                             <TextBox 
+                               Tag="Длина отвала бульдозера, м"
                                 Text="{Binding UserPerfomance.lengthOtvala}"
-                                Grid.Row="0" Grid.Column="1" Background="LightGray" Width="150" Height="25" HorizontalAlignment="Left" Margin="0,44,0,28"/>
-                            <TextBlock Grid.Column="1" FontSize="14" Foreground="White" Margin="0,97,0,97" Grid.RowSpan="3">Высота отвала бульдозера, м</TextBlock>
+                                Grid.Row="0" Grid.Column="1" Background="LightGray" Width="190" Height="35" HorizontalAlignment="Left" Margin="20 25 0 10"/>
                             <TextBox 
+                                Tag="Высота отвала бульдозера, м"
                                 Text="{Binding UserPerfomance.heightOtvala}"
-                                Grid.Row="1" Grid.Column="1" Background="LightGray" Width="150" Height="25" HorizontalAlignment="Left" Margin="0,44,0,29"></TextBox>
-                            <Button Height="25" 
-                                    Width="150" Grid.Row="2" 
+                                Grid.Row="1" Grid.Column="1" Background="LightGray" Width="190" Height="35" HorizontalAlignment="Left" Margin="20 25 0 10"></TextBox>
+                            <Button Height="35" 
+                                    Width="190" Grid.Row="2" 
                                     Grid.Column="1"
-                                    Margin="0,43,0,29"
+                                    Margin="20 25 0 10"
                                     Command="{Binding CalculateUserModelPerfomance}"
                                     Content="Рассчитать" HorizontalAlignment="Left"/>
                             <TextBlock FontSize="16" Foreground="White" Text="Результаты расчётов"
-                                       Margin="74,0,0,0" 
-                                       Grid.Column="3" HorizontalAlignment="Left"/>
+                                       Margin="0 15 40 0" 
+                                       Grid.Column="2" HorizontalAlignment="Center"/>
                             <ListBox Grid.Column="3" Grid.RowSpan="3"
-                                     Background="White" Margin="10,30,0,0" 
-                                     Width="280" Height="262" HorizontalAlignment="Left">
+                                     Background="White" Margin="0 30 80 0" 
+                                     Width="310" Height="262" HorizontalAlignment="Center">
                                 <TextBlock Text="Количество бульдозеров" FontSize="16"/>
                                 <ListBoxItem Content="{Binding UserPerfomance.CountBuldozers}" Width="100" Height="25" HorizontalAlignment="Left"/>
                                 <TextBlock Text="Рабочий цикл бульдозера" FontSize="16"/>
@@ -155,8 +160,7 @@
                                 <ListBoxItem Content="{Binding UserPerfomance.PerfomanceAllBuldozers}"
                                              ContentStringFormat="{}{0} м^3/смена"
                                              Width="150" Height="25" HorizontalAlignment="Left"/>
-                                <TextBlock Text="Необходимое количество" FontSize="16"/>
-                                <TextBlock Text="бульдозеров" FontSize="16"/>
+                                <TextBlock Text="Необходимое количество бульдозеров" FontSize="16"/>
                                 <ListBoxItem Content="{Binding UserPerfomance.NeedfullCountBuldozers}" Width="100" Height="25" HorizontalAlignment="Left"/>
                             </ListBox>
                         </Grid>
