@@ -102,6 +102,7 @@
     <Compile Include="MVVM\ViewModel\BuldozersViewModel.cs" />
     <Compile Include="MVVM\ViewModel\MainViewModel.cs" />
     <Compile Include="MVVM\ViewModel\ParametersViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\ReportsViewModel.cs" />
     <Compile Include="MVVM\View\BuldozersView.xaml.cs">
       <DependentUpon>BuldozersView.xaml</DependentUpon>
     </Compile>
@@ -111,6 +112,9 @@
     </Compile>
     <Compile Include="MVVM\View\ParametersView.xaml.cs">
       <DependentUpon>ParametersView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\ReportsView.xaml.cs">
+      <DependentUpon>ReportsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -150,6 +154,7 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="MVVM\View\ParametersView.xaml" />
+    <Page Include="MVVM\View\ReportsView.xaml" />
     <Page Include="Theme\ButtonsTheme.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -174,6 +179,7 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\arrow-refresh-reload-icon-29.png" />
+    <Resource Include="Images\29076.png" />
     <Content Include="MVVM\Models\DiplomModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>DiplomModel.Context.cs</LastGenOutput>

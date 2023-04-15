@@ -6,8 +6,10 @@ namespace DiplomMVVM.MVVM.ViewModel
     {
         public RelayCommand ParametersViewCommand { get; set; }
         public RelayCommand BuldozersViewCommand { get; set; }
+        public RelayCommand ReportsViewCommand { get; set; }
         public ParametersViewModel ParametersVM { get; set; }
         public BuldozersViewModel BuldozersVM { get; set; }
+        public ReportsViewModel ReportsVM { get; set; }
         private object _currentView;
 
         public object CurrentView
@@ -24,6 +26,7 @@ namespace DiplomMVVM.MVVM.ViewModel
         {
             ParametersVM = new ParametersViewModel();
             BuldozersVM = new BuldozersViewModel();
+            ReportsVM = new ReportsViewModel();
             ParametersViewCommand = new RelayCommand(o =>
             {
                 CurrentView = ParametersVM;
@@ -31,6 +34,10 @@ namespace DiplomMVVM.MVVM.ViewModel
             BuldozersViewCommand = new RelayCommand(o =>
             {
                 CurrentView = BuldozersVM;
+            });
+            ReportsViewCommand = new RelayCommand(o =>
+            {
+                CurrentView = ReportsVM;
             });
         }
     }

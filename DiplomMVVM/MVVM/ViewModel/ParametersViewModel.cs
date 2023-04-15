@@ -1,6 +1,9 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Windows;
+using System.Windows.Controls;
 using DiplomMVVM.Core;
 using DiplomMVVM.MVVM.Models;
 
@@ -60,6 +63,7 @@ namespace DiplomMVVM.MVVM.ViewModel
             
             ListModels = new ObservableCollection<Бульдозер>();
             GetModels();
+            
 
             #region Commands
 
@@ -69,16 +73,33 @@ namespace DiplomMVVM.MVVM.ViewModel
                 SelectedPerfomance.heightOtvala = (double)SelectedModel.Высота_отвала;
                 SelectedPerfomance.CalculateTimeWork();
                 SelectedPerfomance.CalculatePerfomance();
-                
+                string FilePath = @"D:/4 курс практика/C# home/DiplomMVVM/TextReports/" + (DateTime.Now.ToString()).Replace(':', ' ') + ".txt"; ;
+                using (StreamWriter fileStream = File.CreateText(FilePath))
+                {
+
+                    fileStream.WriteLine($"Количество бульдозеров {SelectedPerfomance.CountBuldozers}");
+                    fileStream.WriteLine($"Рабочий цикл бульдозера {SelectedPerfomance.Twork} секунд");
+                    fileStream.WriteLine($"Производительность бульдозеров {SelectedPerfomance.PerfomanceAllBuldozers} м^3/смена");
+                    fileStream.WriteLine($"Необходимое количество бульдозеров {SelectedPerfomance.NeedfullCountBuldozers}");
+                }
+
             });
 
             CalculateUserModelPerfomance = new RelayCommand(o =>
             {
                 UserPerfomance.CalculateTimeWork();
                 UserPerfomance.CalculatePerfomance();
+                string FilePath = @"D:/4 курс практика/C# home/DiplomMVVM/TextReports/" + (DateTime.Now.ToString()).Replace(':', ' ') + ".txt"; ;
+                using (var fileStream = File.CreateText(FilePath))
+                {
+
+                    fileStream.WriteLine($"Количество бульдозеров {SelectedPerfomance.CountBuldozers}");
+                    fileStream.WriteLine($"Рабочий цикл бульдозера {SelectedPerfomance.Twork} секунд");
+                    fileStream.WriteLine($"Производительность бульдозеров {SelectedPerfomance.PerfomanceAllBuldozers} м^3/смена");
+                    fileStream.WriteLine($"Необходимое количество бульдозеров {SelectedPerfomance.NeedfullCountBuldozers}");
+                }
 
             });
-
             #endregion
         }
     }

@@ -7,13 +7,11 @@
              xmlns:viewModel="clr-namespace:DiplomMVVM.MVVM.ViewModel"
              mc:Ignorable="d"
              d:DesignHeight="450" d:DesignWidth="800"
-             Background="#A7A478">
+             Background="#B4B1CD">
     <UserControl.DataContext>
         <viewModel:ParametersViewModel/>
     </UserControl.DataContext>
     <Grid>
-        <Grid.ColumnDefinitions>
-        </Grid.ColumnDefinitions>
         <StackPanel HorizontalAlignment="Left" Grid.Column="0">
             <TabControl Background="Transparent" Width="800" BorderThickness="0">
                 <TabItem>
@@ -43,7 +41,7 @@
                                      Tag="Количество бульдозеров"
                                      Text="{Binding SelectedPerfomance.CountBuldozers}"
                                      Width="200" Height="35" HorizontalAlignment="Left" Margin="0 25 0 10"/>
-                            <TextBlock Grid.Row="2" FontSize="14" Foreground="White">Модель бульдозера</TextBlock>
+                            <TextBlock Grid.Row="2" FontSize="14" Foreground="Black">Модель бульдозера</TextBlock>
                             <ComboBox Grid.Row="2" Name="test"
                                       Tag="Модель бульдозера"
                                       Background="LightGray" Width="200" Height="35"
@@ -75,11 +73,10 @@
                                     Margin="0 15 0 0"
                                     Command="{Binding CalculateSelectedModelPerfomance}"
                                     Content="Рассчитать" HorizontalAlignment="Left"/>
-                            <TextBlock FontSize="16" Foreground="White" Text="Результаты расчётов"
+                            <TextBlock FontSize="16" Foreground="Black" Text="Результаты расчётов"
                                        Margin="0 0 40 0" 
                                        Grid.Column="2" HorizontalAlignment="Center"/>
                             <ListBox Grid.Column="2" Grid.RowSpan="3"
-                                     
                                      Background="White" Margin="0 30 80 0" 
                                      Width="310" Height="262" HorizontalAlignment="Center">
                                 <TextBlock Text="Количество бульдозеров" FontSize="16"/>

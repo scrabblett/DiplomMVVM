@@ -4,9 +4,64 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:DiplomMVVM.MVVM.View"
+             xmlns:viewModel="clr-namespace:DiplomMVVM.MVVM.ViewModel"
              mc:Ignorable="d"
-             d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
+             d:DesignHeight="450" d:DesignWidth="800"
+             Background="#B4B1CD">
+    <UserControl.DataContext>
+        <viewModel:ReportsViewModel/>
+    </UserControl.DataContext>
+    
+    <StackPanel Width="450">
+        <StackPanel Width="230" HorizontalAlignment="Right">
+            <TextBlock Text="Архив отчетов" HorizontalAlignment="Right" FontSize="16" FontWeight="Bold" Margin="0 5 0 0"/>
+            <TextBox Width="200" Margin="0 5 0 0" HorizontalAlignment="Right"
+                     Text="{Binding Filter, UpdateSourceTrigger=PropertyChanged}"
+                     Tag="Наименование отчета"/>
+        </StackPanel>
         
-    </Grid>
+        <ListView Background="Transparent"
+                  Margin="0 15 0 0"
+                  Width="450"
+                  Height="250"
+                  BorderThickness="0"
+                  ItemsSource="{Binding ListViewItemsFiltered}"
+                  SelectedItem="{Binding SelectedFile}"
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Horizontal"
+                               HorizontalAlignment="Center"/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Width="200">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0" Source="/Images/29076.png" 
+                               Width="100" Height="40"
+                               HorizontalAlignment="Left"/>
+                        <TextBlock Grid.Column="1" 
+                                   Text="{Binding Name}" 
+                                   VerticalAlignment="Center" 
+                                   TextWrapping="Wrap"
+                                   HorizontalAlignment="Center"
+                                   FontWeight="DemiBold"
+                                   Width="150"
+                                   Height="45"
+                                   Foreground="White"
+                                   FontSize="16"/>
+                    </Grid>
+                </DataTemplate> 
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button 
+            Margin="0 15 0 0"
+            Content="Открыть" Width="150" 
+            HorizontalAlignment="Right"
+            Height="30" Command="{Binding OpenReportCommand}"/>
+    </StackPanel>
 </UserControl>

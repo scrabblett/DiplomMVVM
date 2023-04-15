@@ -15,7 +15,7 @@
     <Window.DataContext>
         <viewModel:MainViewModel/>
     </Window.DataContext>
-    <Border Background="#79759B" CornerRadius="20">
+    <Border Background="#615F74" CornerRadius="20">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
@@ -44,6 +44,12 @@
                              FontSize="14"
                              Style="{StaticResource MenuButtonTheme}"
                              Command="{Binding BuldozersViewCommand}"/>
+                <RadioButton Content="Отчеты"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding ReportsViewCommand}"/>
             </StackPanel>
             <ContentControl Grid.Row="1"
                             Grid.Column="1"
