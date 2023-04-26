@@ -66,7 +66,7 @@
                     <StackPanel Grid.RowSpan="3" Grid.Column="1" Width="200" HorizontalAlignment="Left">
 
                             <TextBox Height="35" Width="200" VerticalAlignment="Center"
-                                 Text="{Binding NewBuldozer.Модель,Mode=TwoWay}"
+                                 Text="{Binding Model,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                                  Margin="0 15 0 15"
                                  Tag="Модель бульдозера"
                                  HorizontalAlignment="Center"/>
@@ -74,10 +74,10 @@
                             <TextBox Height="35" Width="200" VerticalAlignment="Center" HorizontalAlignment="Center"
                                  Tag="Длина отвала бульдозера"
                                  Margin="0 0 0 15"
-                                 Text="{Binding NewBuldozer.Длина_отвала,Mode=TwoWay}"/>
+                                 Text="{Binding Length,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
                             <TextBox Height="35" Width="200" VerticalAlignment="Center" HorizontalAlignment="Center"
                                      Tag="Высота отвала бульдозера"
-                                     Text="{Binding NewBuldozer.Высота_отвала,Mode=TwoWay }"/>
+                                     Text="{Binding Height,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }"/>
                         <Button Width="150" Height="30" Margin="0 15 0 0"
                                 Content="Добавить" Command="{Binding AddBuldozerViewCommand}"/>
                     </StackPanel>

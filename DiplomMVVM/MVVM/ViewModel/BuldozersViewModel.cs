@@ -19,14 +19,34 @@ namespace DiplomMVVM.MVVM.ViewModel
         
         public RelayCommand SaveChangesBuldozerViewCommand { get; set; }
         private Бульдозер _newBuldozer = new Бульдозер();
-       
 
-        public Бульдозер NewBuldozer
+        private string _model;
+        public string Model
         {
-            get => _newBuldozer;
+            get => _model;
             set
             {
-                _newBuldozer = value;
+                _model = value;
+                OnPropertyChanged();
+            }
+        }
+        private double? _length = null;
+        public double? Length
+        {
+            get => _length;
+            set
+            {
+                _length = value;
+                OnPropertyChanged();
+            }
+        }
+        private double? _height = null;
+        public double? Height
+        {
+            get => _height;
+            set
+            {
+                _height = value;
                 OnPropertyChanged();
             }
         }
@@ -56,25 +76,29 @@ namespace DiplomMVVM.MVVM.ViewModel
            
             ListBuldozers = new ObservableCollection<Бульдозер>();
             UpdateView();
-           
+
             #region Commands
 
             AddBuldozerViewCommand = new RelayCommand(o =>
             {
                 try
                 {
-                    DiplomEntities.GetContext().Бульдозер.Add(NewBuldozer);
+                    Бульдозер buldozer = new Бульдозер { Модель = Model, Высота_отвала = Height, Длина_отвала = Length };
+                    DiplomEntities.GetContext().Бульдозер.Add(buldozer);
                     DiplomEntities.GetContext().SaveChanges();
+                    Height = null;
+                    Model = null;
+                    Length = null;
                     MessageBox.Show("Данные успешно добавлены!");
-                    NewBuldozer = null;
                     UpdateView();
+
                 }
                 catch (Exception e)
                 {
                     MessageBox.Show(e.ToString());
                 }
 
-            });
+            }, (o) => !string.IsNullOrEmpty(Model) && !string.IsNullOrEmpty(Height.ToString()) && !string.IsNullOrEmpty(Length.ToString()));
             
             DeleteBuldozerViewCommand = new RelayCommand(o =>
             {
