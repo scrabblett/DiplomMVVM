@@ -37,7 +37,6 @@ namespace DiplomMVVM.MVVM.ViewModel
             set
             {
                 _length = value;
-                if (string.IsNullOrEmpty(Length.ToString())) _length = null;
                 OnPropertyChanged();
             }
         }
@@ -48,7 +47,6 @@ namespace DiplomMVVM.MVVM.ViewModel
             set
             {
                 _height = value;
-                if (string.IsNullOrEmpty(Height.ToString())) _height = null;
                 OnPropertyChanged();
             }
         }
