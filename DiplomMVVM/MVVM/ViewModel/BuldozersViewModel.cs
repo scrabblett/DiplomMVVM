@@ -37,6 +37,7 @@ namespace DiplomMVVM.MVVM.ViewModel
             set
             {
                 _length = value;
+                if (string.IsNullOrEmpty(Length.ToString())) _length = null;
                 OnPropertyChanged();
             }
         }
@@ -47,6 +48,7 @@ namespace DiplomMVVM.MVVM.ViewModel
             set
             {
                 _height = value;
+                if (string.IsNullOrEmpty(Height.ToString())) _height = null;
                 OnPropertyChanged();
             }
         }
@@ -83,6 +85,9 @@ namespace DiplomMVVM.MVVM.ViewModel
             {
                 try
                 {
+                    if (string.IsNullOrEmpty(Model) 
+                    || string.IsNullOrEmpty(Height.ToString()) 
+                    || string.IsNullOrEmpty(Length.ToString())) throw new Exception("заполните все поля!");
                     Бульдозер buldozer = new Бульдозер { Модель = Model, Высота_отвала = Height, Длина_отвала = Length };
                     DiplomEntities.GetContext().Бульдозер.Add(buldozer);
                     DiplomEntities.GetContext().SaveChanges();
@@ -95,10 +100,10 @@ namespace DiplomMVVM.MVVM.ViewModel
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.ToString());
+                    MessageBox.Show($"Ошибка: {e.Message}");
                 }
 
-            }, (o) => !string.IsNullOrEmpty(Model) && !string.IsNullOrEmpty(Height.ToString()) && !string.IsNullOrEmpty(Length.ToString()));
+            });
             
             DeleteBuldozerViewCommand = new RelayCommand(o =>
             {
@@ -126,6 +131,10 @@ namespace DiplomMVVM.MVVM.ViewModel
             {
                 try
                 {
+                    if (SelectedBuldozer == null) throw new Exception("выберите модель для редактирования!");
+                    if(string.IsNullOrEmpty(SelectedBuldozer.Модель) || 
+                    string.IsNullOrEmpty(SelectedBuldozer.Длина_отвала.ToString()) 
+                    || string.IsNullOrEmpty(SelectedBuldozer.Высота_отвала.ToString())) throw new Exception("заполните все поля!");
                     DiplomEntities.GetContext().SaveChanges();
                     MessageBox.Show("Данные успешно отредактированы!");
                     SelectedBuldozer = null;
@@ -133,7 +142,7 @@ namespace DiplomMVVM.MVVM.ViewModel
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.ToString());
+                    MessageBox.Show($"Ошибка: {e.Message}");
                 }
             });
             #endregion

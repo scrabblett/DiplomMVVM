@@ -77,7 +77,7 @@
                                  Text="{Binding Length,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
                             <TextBox Height="35" Width="200" VerticalAlignment="Center" HorizontalAlignment="Center"
                                      Tag="Высота отвала бульдозера"
-                                     Text="{Binding Height,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }"/>
+                                     Text="{Binding Height,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
                         <Button Width="150" Height="30" Margin="0 15 0 0"
                                 Content="Добавить" Command="{Binding AddBuldozerViewCommand}"/>
                     </StackPanel>
