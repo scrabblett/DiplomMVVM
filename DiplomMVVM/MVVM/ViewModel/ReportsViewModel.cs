@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Navigation;
 using DiplomMVVM.Core;
 using DiplomMVVM.MVVM.Models;
@@ -13,6 +15,7 @@ namespace DiplomMVVM.MVVM.ViewModel
     public class ReportsViewModel: ObservableObject
     {
         public RelayCommand OpenReportCommand { get; set; }
+        public RelayCommand DeleteReportCommand { get; set; }
         private string FolderPath = @"D:/4 курс практика/C# home/DiplomMVVM/TextReports/";
         public class ListViewItem
         {
@@ -35,7 +38,7 @@ namespace DiplomMVVM.MVVM.ViewModel
                 OnPropertyChanged();
             }
         }
-        private string _filter;
+        private string _filter = "";
         public string Filter
         {
             get => _filter;
@@ -59,7 +62,6 @@ namespace DiplomMVVM.MVVM.ViewModel
                     _listViewItemsFiltered.Add(result);
                 if (string.IsNullOrEmpty(s))
                 {
-                    ListViewItemsFiltered.Clear();
                     UpdateView();
                 }
 
@@ -67,6 +69,7 @@ namespace DiplomMVVM.MVVM.ViewModel
         }
         private void UpdateView()
         {
+            ListViewItemsFiltered.Clear();
             var dinfo = new DirectoryInfo(FolderPath);
             
             var listOfFiles = dinfo.GetFiles("*.*", SearchOption.TopDirectoryOnly).ToList();
@@ -89,6 +92,31 @@ namespace DiplomMVVM.MVVM.ViewModel
                 var selectedPath = @""+ "D:/4 курс практика/C# home/DiplomMVVM/TextReports/" + SelectedFile.Name;
                 Process.Start("notepad.exe", selectedPath);
             }, o => ListViewItemsFiltered.Count>0 );
+            DeleteReportCommand = new RelayCommand(o => 
+            {
+                try
+                {
+                    var selectedPath = @"" + "D:/4 курс практика/C# home/DiplomMVVM/TextReports/" + SelectedFile.Name;
+                    var result = MessageBox.Show("Удалить выбранный отчёт?", "Предупреждение",
+                    MessageBoxButton.OKCancel);
+                    if (result != MessageBoxResult.OK) return;
+                    File.Delete(selectedPath);
+                    foreach (var file in TextFiles)
+                    {
+                        if (file.Name == SelectedFile.Name)
+                        {
+                            TextFiles.Remove(file);
+                            break;
+                        }
+                    }
+                    MessageBox.Show("Отчёт удален!");
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show($"Ошибка: {ex.Message.ToLower()}");
+                }
+                UpdateFilter("");
+            }, o=> SelectedFile !=null);
         }
     }
 }

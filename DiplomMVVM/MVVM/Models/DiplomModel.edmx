@@ -33,30 +33,18 @@
           <Property Name="Длина отвала" Type="float" />
           <Property Name="Высота отвала" Type="float" />
         </EntityType>
-        <EntityType Name="ПоправочныйКоэффициент">
+        <EntityType Name="Грунт">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="Отношение H/L" Type="nvarchar" MaxLength="10" />
-          <Property Name="Связные грунты I – II" Type="nvarchar" MaxLength="20" />
-          <Property Name="Несвязные грунты" Type="nvarchar" MaxLength="20" />
           <Property Name="ID" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="СкоростьСамосвалов">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="Грузоподъемность, т" Type="nvarchar" MaxLength="10" />
-          <Property Name="Дальность перемещения, км" Type="nvarchar" MaxLength="10" />
-          <Property Name="Скорость самосвала, км/ч" Type="nvarchar" MaxLength="10" />
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Название_грунта" Type="varchar" MaxLength="150" Nullable="false" />
         </EntityType>
         <EntityContainer Name="Хранилище DiplomModelContainer">
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Автосамосвал" EntityType="Self.Автосамосвал" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Бульдозер" EntityType="Self.Бульдозер" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ПоправочныйКоэффициент" EntityType="Self.ПоправочныйКоэффициент" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="СкоростьСамосвалов" EntityType="Self.СкоростьСамосвалов" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Грунт" EntityType="Self.Грунт" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
@@ -91,30 +79,18 @@
           <Property Name="Длина_отвала" Type="Double" />
           <Property Name="Высота_отвала" Type="Double" />
         </EntityType>
-        <EntityType Name="ПоправочныйКоэффициент">
+        <EntityType Name="Грунт">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="Отношение_H_L" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="Связные_грунты_I___II" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="Несвязные_грунты" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="ID" Type="Int32" Nullable="false" />
-        </EntityType>
-        <EntityType Name="СкоростьСамосвалов">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="Грузоподъемность__т" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="Дальность_перемещения__км" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="Скорость_самосвала__км_ч" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Название_грунта" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityContainer Name="DiplomEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="Автосамосвал" EntityType="Self.Автосамосвал" />
           <EntitySet Name="Бульдозер" EntityType="Self.Бульдозер" />
-          <EntitySet Name="ПоправочныйКоэффициент" EntityType="Self.ПоправочныйКоэффициент" />
-          <EntitySet Name="СкоростьСамосвалов" EntityType="Self.СкоростьСамосвалов" />
+          <EntitySet Name="Грунт" EntityType="Self.Грунт" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -153,23 +129,11 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ПоправочныйКоэффициент">
-            <EntityTypeMapping TypeName="DiplomModel.ПоправочныйКоэффициент">
-              <MappingFragment StoreEntitySet="ПоправочныйКоэффициент">
-                <ScalarProperty Name="Отношение_H_L" ColumnName="Отношение H/L" />
-                <ScalarProperty Name="Связные_грунты_I___II" ColumnName="Связные грунты I – II" />
-                <ScalarProperty Name="Несвязные_грунты" ColumnName="Несвязные грунты" />
+          <EntitySetMapping Name="Грунт">
+            <EntityTypeMapping TypeName="DiplomModel.Грунт">
+              <MappingFragment StoreEntitySet="Грунт">
                 <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="СкоростьСамосвалов">
-            <EntityTypeMapping TypeName="DiplomModel.СкоростьСамосвалов">
-              <MappingFragment StoreEntitySet="СкоростьСамосвалов">
-                <ScalarProperty Name="Грузоподъемность__т" ColumnName="Грузоподъемность, т" />
-                <ScalarProperty Name="Дальность_перемещения__км" ColumnName="Дальность перемещения, км" />
-                <ScalarProperty Name="Скорость_самосвала__км_ч" ColumnName="Скорость самосвала, км/ч" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Название_грунта" ColumnName="Название_грунта" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

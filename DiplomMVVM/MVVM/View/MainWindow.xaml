@@ -55,6 +55,14 @@
                             Grid.Column="1"
                             Margin="10"
                             Content="{Binding CurrentView}"/>
+            <Button Width="50"
+                    Height="50"
+                    Grid.Column="1"
+                    Margin="750 0 0 30"
+                    Command="{Binding CloseAppCommand}"
+                    Background="Transparent">
+                <Image Source="/Images/button.png"/>
+            </Button>
         </Grid>
         
     </Border>

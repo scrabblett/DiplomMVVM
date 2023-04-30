@@ -12,11 +12,9 @@ namespace DiplomMVVM.MVVM.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class СкоростьСамосвалов
+    public partial class Грунт
     {
-        public string Грузоподъемность__т { get; set; }
-        public string Дальность_перемещения__км { get; set; }
-        public string Скорость_самосвала__км_ч { get; set; }
         public int ID { get; set; }
+        public string Название_грунта { get; set; }
     }
 }

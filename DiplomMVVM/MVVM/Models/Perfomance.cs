@@ -126,7 +126,6 @@ namespace DiplomMVVM.MVVM.Models
             SECONDARY_OPERATIONS = rnd.Next(16, 18);
             CF_BUKS = 0.18 + rnd.NextDouble() * (0.22 - 0.18);
             CF_H = 0.08 + rnd.NextDouble() * (0.25 - 0.08);
-            CF_R = 1.15 + rnd.NextDouble() * (1.3 - 1.15);
             Vprizm = (double)(lengthOtvala * Math.Pow((double)heightOtvala, 2) / 2 * CF_POPR);
             lengthRezaniya = (double)(Vprizm / ((lengthOtvala * CF_H) * CF_R));
             T1 = (lengthRezaniya) / (FIRST_SPEED * (1 - CF_BUKS));

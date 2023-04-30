@@ -61,7 +61,10 @@
         <Button 
             Margin="0 15 0 0"
             Content="Открыть" Width="150" 
-            HorizontalAlignment="Right"
+            HorizontalAlignment="Left"
             Height="30" Command="{Binding OpenReportCommand}"/>
+        <Button Content="Удалить" Width="150" HorizontalAlignment="Right"
+                Margin="0 -30 0 0"
+                Command="{Binding DeleteReportCommand}"/>
     </StackPanel>
 </UserControl>

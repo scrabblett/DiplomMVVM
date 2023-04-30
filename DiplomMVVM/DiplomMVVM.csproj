@@ -93,10 +93,7 @@
     <Compile Include="MVVM\Models\Бульдозер.cs">
       <DependentUpon>DiplomModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="MVVM\Models\ПоправочныйКоэффициент.cs">
-      <DependentUpon>DiplomModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MVVM\Models\СкоростьСамосвалов.cs">
+    <Compile Include="MVVM\Models\Грунт.cs">
       <DependentUpon>DiplomModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MVVM\ViewModel\BuldozersViewModel.cs" />
@@ -180,19 +177,22 @@
   <ItemGroup>
     <Resource Include="Images\arrow-refresh-reload-icon-29.png" />
     <Resource Include="Images\29076.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\button.png" />
     <Content Include="MVVM\Models\DiplomModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>DiplomModel.Context.cs</LastGenOutput>
       <DependentUpon>DiplomModel.edmx</DependentUpon>
+      <LastGenOutput>DiplomModel.Context.cs</LastGenOutput>
     </Content>
     <Content Include="MVVM\Models\DiplomModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DiplomModel.edmx</DependentUpon>
       <LastGenOutput>DiplomModel.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
