@@ -50,9 +50,10 @@
             <TextBlock Text="Данные бульдозера"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Left"
+                       FontWeight="Bold"
                        Foreground="Black"
-                       Margin="0 10 0 13"
-                       FontSize="22"/>
+                       Margin="20 10 0 13"
+                       FontSize="16"/>
             <TabControl  Background="Transparent"
                          Width="250" HorizontalAlignment="Left"
                          BorderThickness="0">
