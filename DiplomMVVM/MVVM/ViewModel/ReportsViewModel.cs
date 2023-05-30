@@ -16,7 +16,8 @@ namespace DiplomMVVM.MVVM.ViewModel
     {
         public RelayCommand OpenReportCommand { get; set; }
         public RelayCommand DeleteReportCommand { get; set; }
-        private string FolderPath = @"D:/4 курс практика/C# home/DiplomMVVM/TextReports/";
+        private string FolderPath = @"TextReports/";
+        // private string FolderPath = @"D:/4 курс практика/C# home/DiplomMVVM/TextReports/";
         public class ListViewItem
         {
             public string Name { get; set; }
@@ -89,14 +90,14 @@ namespace DiplomMVVM.MVVM.ViewModel
             UpdateView();
             OpenReportCommand = new RelayCommand(o =>
             {
-                var selectedPath = @""+ "D:/4 курс практика/C# home/DiplomMVVM/TextReports/" + SelectedFile.Name;
+                var selectedPath = @""+ "TextReports/" + SelectedFile.Name;
                 Process.Start("notepad.exe", selectedPath);
             }, o => ListViewItemsFiltered.Count>0 );
             DeleteReportCommand = new RelayCommand(o => 
             {
                 try
                 {
-                    var selectedPath = @"" + "D:/4 курс практика/C# home/DiplomMVVM/TextReports/" + SelectedFile.Name;
+                    var selectedPath = @"" + "TextReports/" + SelectedFile.Name;
                     var result = MessageBox.Show("Удалить выбранный отчёт?", "Предупреждение",
                     MessageBoxButton.OKCancel);
                     if (result != MessageBoxResult.OK) return;

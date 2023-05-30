@@ -115,7 +115,7 @@ namespace DiplomMVVM.MVVM.ViewModel
                     SelectedPerfomance.heightOtvala = (double)SelectedModel.Высота_отвала;
                     SelectedPerfomance.CalculateTimeWork();
                     SelectedPerfomance.CalculatePerfomance();
-                    string FilePath = @"D:/4 курс практика/C# home/DiplomMVVM/TextReports/" + (DateTime.Now.ToString()).Replace(':', ' ') + ".txt"; ;
+                    string FilePath = @"TextReports/" + (DateTime.Now.ToString()).Replace(':', ' ') + ".txt"; ;
                     using (StreamWriter fileStream = File.CreateText(FilePath))
                     {
 
@@ -160,7 +160,7 @@ namespace DiplomMVVM.MVVM.ViewModel
                     }
                     UserPerfomance.CalculateTimeWork();
                     UserPerfomance.CalculatePerfomance();
-                    string FilePath = @"D:/4 курс практика/C# home/DiplomMVVM/TextReports/" + (DateTime.Now.ToString()).Replace(':', ' ') + ".txt"; ;
+                    string FilePath = @"TextReports/" + (DateTime.Now.ToString()).Replace(':', ' ') + ".txt"; ;
                     using (var fileStream = File.CreateText(FilePath))
                     {
 
