@@ -14,9 +14,18 @@ namespace DiplomMVVM.MVVM.Models
     
     public partial class Бульдозер
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Бульдозер()
+        {
+            this.Отчет = new HashSet<Отчет>();
+        }
+    
         public int ID { get; set; }
         public string Модель { get; set; }
         public Nullable<double> Длина_отвала { get; set; }
         public Nullable<double> Высота_отвала { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Отчет> Отчет { get; set; }
     }
 }

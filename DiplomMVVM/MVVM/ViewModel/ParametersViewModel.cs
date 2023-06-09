@@ -115,15 +115,31 @@ namespace DiplomMVVM.MVVM.ViewModel
                     SelectedPerfomance.heightOtvala = (double)SelectedModel.Высота_отвала;
                     SelectedPerfomance.CalculateTimeWork();
                     SelectedPerfomance.CalculatePerfomance();
+                    Отчет report = new Отчет();
+                    report.ID_бульдозера = SelectedModel.ID;
+                    report.ID_грунта = SelectedGround.ID;
+                    report.Необходимое_количество_бульдозеров = SelectedPerfomance.NeedfullCountBuldozers;
+                    report.Рабочий_цикл_бульдозера = SelectedPerfomance.Twork;
+                    report.Объем_призмы_волочения = SelectedPerfomance.Vprizm;
+                    report.Длина_отвала_бульдозера = SelectedModel.Длина_отвала;
+                    report.Высота_отвала_бульдозера = SelectedModel.Высота_отвала;
+                    report.Производительность_бульдозера = SelectedPerfomance.PerfomanceBuldozer;
+                    report.Количество_автосамосвалов = SelectedPerfomance.CountTrucks;
+                    report.Длина_передвижения_грунта = SelectedPerfomance.LengthPeredvGrunta;
+                    DiplomEntities.GetContext().Отчет.Add(report);
+                    DiplomEntities.GetContext().SaveChanges();
                     string FilePath = @"TextReports/" + (DateTime.Now.ToString()).Replace(':', ' ') + ".txt"; ;
                     using (StreamWriter fileStream = File.CreateText(FilePath))
                     {
-
-                        fileStream.WriteLine($"Количество бульдозеров {SelectedPerfomance.CountBuldozers}");
+                        fileStream.WriteLine($"Количество бульдозеров {SelectedPerfomance.CountBuldozers} шт");
                         fileStream.WriteLine($"Рабочий цикл бульдозера {SelectedPerfomance.Twork} секунд");
                         fileStream.WriteLine($"Производительность бульдозеров {SelectedPerfomance.PerfomanceAllBuldozers} м^3/смена");
+                        fileStream.WriteLine($"Объем призмы волочения бульдозера {SelectedPerfomance.Vprizm} м^3");
+                        fileStream.WriteLine($"Длина отвала бульдозера {SelectedPerfomance.lengthOtvala} м");
+                        fileStream.WriteLine($"Высота отвала бульдозера {SelectedPerfomance.heightOtvala} м");
+                        fileStream.WriteLine($"Длина передвижения грунта {SelectedPerfomance.LengthPeredvGrunta} м");
+                        fileStream.WriteLine($"Количество автосамосвалов в смену {SelectedPerfomance.CountTrucks} шт");
                         fileStream.WriteLine($"Необходимое количество бульдозеров {SelectedPerfomance.NeedfullCountBuldozers}");
-                        fileStream.WriteLine($"Коэффициент рыхления {SelectedPerfomance.CF_R}");
                     }
                 }
                 catch (Exception ex)
@@ -160,6 +176,18 @@ namespace DiplomMVVM.MVVM.ViewModel
                     }
                     UserPerfomance.CalculateTimeWork();
                     UserPerfomance.CalculatePerfomance();
+                    Отчет report = new Отчет();
+                    report.ID_грунта = SelectedGround.ID;
+                    report.Необходимое_количество_бульдозеров = UserPerfomance.NeedfullCountBuldozers;
+                    report.Рабочий_цикл_бульдозера = UserPerfomance.Twork;
+                    report.Объем_призмы_волочения = UserPerfomance.Vprizm;
+                    report.Длина_отвала_бульдозера = UserPerfomance.lengthOtvala;
+                    report.Высота_отвала_бульдозера = UserPerfomance.heightOtvala;
+                    report.Производительность_бульдозера = UserPerfomance.PerfomanceBuldozer;
+                    report.Количество_автосамосвалов = UserPerfomance.CountTrucks;
+                    report.Длина_передвижения_грунта = UserPerfomance.LengthPeredvGrunta;
+                    DiplomEntities.GetContext().Отчет.Add(report);
+                    DiplomEntities.GetContext().SaveChanges();
                     string FilePath = @"TextReports/" + (DateTime.Now.ToString()).Replace(':', ' ') + ".txt"; ;
                     using (var fileStream = File.CreateText(FilePath))
                     {
@@ -167,8 +195,14 @@ namespace DiplomMVVM.MVVM.ViewModel
                         fileStream.WriteLine($"Количество бульдозеров {UserPerfomance.CountBuldozers}");
                         fileStream.WriteLine($"Рабочий цикл бульдозера {UserPerfomance.Twork} секунд");
                         fileStream.WriteLine($"Производительность бульдозеров {UserPerfomance.PerfomanceAllBuldozers} м^3/смена");
+                        fileStream.WriteLine($"Объем призмы волочения бульдозера {UserPerfomance.Vprizm} м^3");
+                        fileStream.WriteLine($"Длина отвала бульдозера {UserPerfomance.lengthOtvala} м");
+                        fileStream.WriteLine($"Высота отвала бульдозера {UserPerfomance.heightOtvala} м");
+                        fileStream.WriteLine($"Длина передвижения грунта {UserPerfomance.LengthPeredvGrunta} м");
+                        fileStream.WriteLine($"Количество автосамосвалов в смену {UserPerfomance.CountTrucks} шт");
                         fileStream.WriteLine($"Необходимое количество бульдозеров {UserPerfomance.NeedfullCountBuldozers}");
-                        fileStream.WriteLine($"Коэффициент рыхления {UserPerfomance.CF_R}");
+
+
                     }
                 }
                 catch(Exception ex)

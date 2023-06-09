@@ -87,13 +87,13 @@
     <Compile Include="MVVM\Models\sysdiagrams.cs">
       <DependentUpon>DiplomModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="MVVM\Models\Автосамосвал.cs">
-      <DependentUpon>DiplomModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="MVVM\Models\Бульдозер.cs">
       <DependentUpon>DiplomModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MVVM\Models\Грунт.cs">
+      <DependentUpon>DiplomModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\Models\Отчет.cs">
       <DependentUpon>DiplomModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MVVM\ViewModel\BuldozersViewModel.cs" />
@@ -183,6 +183,8 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\button.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="MVVM\Models\DiplomModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DiplomModel.edmx</DependentUpon>

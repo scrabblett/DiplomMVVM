@@ -14,7 +14,16 @@ namespace DiplomMVVM.MVVM.Models
     
     public partial class Грунт
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Грунт()
+        {
+            this.Отчет = new HashSet<Отчет>();
+        }
+    
         public int ID { get; set; }
         public string Название_грунта { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Отчет> Отчет { get; set; }
     }
 }

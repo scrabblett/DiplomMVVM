@@ -15,15 +15,6 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
-        <EntityType Name="Автосамосвал">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Модель" Type="varchar" MaxLength="35" />
-          <Property Name="Грузоподъёмность, т" Type="float" />
-          <Property Name="Время разгрузки, мин" Type="float" />
-        </EntityType>
         <EntityType Name="Бульдозер">
           <Key>
             <PropertyRef Name="ID" />
@@ -40,11 +31,59 @@
           <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="Название_грунта" Type="varchar" MaxLength="150" Nullable="false" />
         </EntityType>
+        <EntityType Name="Отчет">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID бульдозера" Type="int" />
+          <Property Name="ID грунта" Type="int" />
+          <Property Name="Необходимое количество бульдозеров" Type="int" />
+          <Property Name="Рабочий цикл бульдозера" Type="float" />
+          <Property Name="Объем призмы волочения" Type="float" />
+          <Property Name="Длина отвала бульдозера" Type="float" />
+          <Property Name="Высота отвала бульдозера" Type="float" />
+          <Property Name="Производительность бульдозера" Type="float" />
+          <Property Name="Количество автосамосвалов" Type="int" />
+          <Property Name="Длина передвижения грунта" Type="float" />
+        </EntityType>
+        <Association Name="FK_Отчет_Бульдозер">
+          <End Role="Бульдозер" Type="Self.Бульдозер" Multiplicity="0..1" />
+          <End Role="Отчет" Type="Self.Отчет" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Бульдозер">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Отчет">
+              <PropertyRef Name="ID бульдозера" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Отчет_Грунт">
+          <End Role="Грунт" Type="Self.Грунт" Multiplicity="0..1" />
+          <End Role="Отчет" Type="Self.Отчет" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Грунт">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Отчет">
+              <PropertyRef Name="ID грунта" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="Хранилище DiplomModelContainer">
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Автосамосвал" EntityType="Self.Автосамосвал" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Бульдозер" EntityType="Self.Бульдозер" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Грунт" EntityType="Self.Грунт" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Отчет" EntityType="Self.Отчет" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Отчет_Бульдозер" Association="Self.FK_Отчет_Бульдозер">
+            <End Role="Бульдозер" EntitySet="Бульдозер" />
+            <End Role="Отчет" EntitySet="Отчет" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Отчет_Грунт" Association="Self.FK_Отчет_Грунт">
+            <End Role="Грунт" EntitySet="Грунт" />
+            <End Role="Отчет" EntitySet="Отчет" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
@@ -61,15 +100,6 @@
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
-        <EntityType Name="Автосамосвал">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Модель" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
-          <Property Name="Грузоподъёмность__т" Type="Double" />
-          <Property Name="Время_разгрузки__мин" Type="Double" />
-        </EntityType>
         <EntityType Name="Бульдозер">
           <Key>
             <PropertyRef Name="ID" />
@@ -78,6 +108,7 @@
           <Property Name="Модель" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="Длина_отвала" Type="Double" />
           <Property Name="Высота_отвала" Type="Double" />
+          <NavigationProperty Name="Отчет" Relationship="Self.FK_Отчет_Бульдозер" FromRole="Бульдозер" ToRole="Отчет" />
         </EntityType>
         <EntityType Name="Грунт">
           <Key>
@@ -85,12 +116,63 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" />
           <Property Name="Название_грунта" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Отчет" Relationship="Self.FK_Отчет_Грунт" FromRole="Грунт" ToRole="Отчет" />
         </EntityType>
+        <EntityType Name="Отчет">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_бульдозера" Type="Int32" />
+          <Property Name="ID_грунта" Type="Int32" />
+          <Property Name="Необходимое_количество_бульдозеров" Type="Int32" />
+          <Property Name="Рабочий_цикл_бульдозера" Type="Double" />
+          <Property Name="Объем_призмы_волочения" Type="Double" />
+          <Property Name="Длина_отвала_бульдозера" Type="Double" />
+          <Property Name="Высота_отвала_бульдозера" Type="Double" />
+          <Property Name="Производительность_бульдозера" Type="Double" />
+          <Property Name="Количество_автосамосвалов" Type="Int32" />
+          <Property Name="Длина_передвижения_грунта" Type="Double" />
+          <NavigationProperty Name="Бульдозер" Relationship="Self.FK_Отчет_Бульдозер" FromRole="Отчет" ToRole="Бульдозер" />
+          <NavigationProperty Name="Грунт" Relationship="Self.FK_Отчет_Грунт" FromRole="Отчет" ToRole="Грунт" />
+        </EntityType>
+        <Association Name="FK_Отчет_Бульдозер">
+          <End Role="Бульдозер" Type="Self.Бульдозер" Multiplicity="0..1" />
+          <End Role="Отчет" Type="Self.Отчет" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Бульдозер">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Отчет">
+              <PropertyRef Name="ID_бульдозера" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Отчет_Грунт">
+          <End Role="Грунт" Type="Self.Грунт" Multiplicity="0..1" />
+          <End Role="Отчет" Type="Self.Отчет" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Грунт">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Отчет">
+              <PropertyRef Name="ID_грунта" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="DiplomEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
-          <EntitySet Name="Автосамосвал" EntityType="Self.Автосамосвал" />
           <EntitySet Name="Бульдозер" EntityType="Self.Бульдозер" />
           <EntitySet Name="Грунт" EntityType="Self.Грунт" />
+          <EntitySet Name="Отчет" EntityType="Self.Отчет" />
+          <AssociationSet Name="FK_Отчет_Бульдозер" Association="Self.FK_Отчет_Бульдозер">
+            <End Role="Бульдозер" EntitySet="Бульдозер" />
+            <End Role="Отчет" EntitySet="Отчет" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Отчет_Грунт" Association="Self.FK_Отчет_Грунт">
+            <End Role="Грунт" EntitySet="Грунт" />
+            <End Role="Отчет" EntitySet="Отчет" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -109,16 +191,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Автосамосвал">
-            <EntityTypeMapping TypeName="DiplomModel.Автосамосвал">
-              <MappingFragment StoreEntitySet="Автосамосвал">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Модель" ColumnName="Модель" />
-                <ScalarProperty Name="Грузоподъёмность__т" ColumnName="Грузоподъёмность, т" />
-                <ScalarProperty Name="Время_разгрузки__мин" ColumnName="Время разгрузки, мин" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Бульдозер">
             <EntityTypeMapping TypeName="DiplomModel.Бульдозер">
               <MappingFragment StoreEntitySet="Бульдозер">
@@ -134,6 +206,23 @@
               <MappingFragment StoreEntitySet="Грунт">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Название_грунта" ColumnName="Название_грунта" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Отчет">
+            <EntityTypeMapping TypeName="DiplomModel.Отчет">
+              <MappingFragment StoreEntitySet="Отчет">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_бульдозера" ColumnName="ID бульдозера" />
+                <ScalarProperty Name="ID_грунта" ColumnName="ID грунта" />
+                <ScalarProperty Name="Необходимое_количество_бульдозеров" ColumnName="Необходимое количество бульдозеров" />
+                <ScalarProperty Name="Рабочий_цикл_бульдозера" ColumnName="Рабочий цикл бульдозера" />
+                <ScalarProperty Name="Объем_призмы_волочения" ColumnName="Объем призмы волочения" />
+                <ScalarProperty Name="Длина_отвала_бульдозера" ColumnName="Длина отвала бульдозера" />
+                <ScalarProperty Name="Высота_отвала_бульдозера" ColumnName="Высота отвала бульдозера" />
+                <ScalarProperty Name="Производительность_бульдозера" ColumnName="Производительность бульдозера" />
+                <ScalarProperty Name="Количество_автосамосвалов" ColumnName="Количество автосамосвалов" />
+                <ScalarProperty Name="Длина_передвижения_грунта" ColumnName="Длина передвижения грунта" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

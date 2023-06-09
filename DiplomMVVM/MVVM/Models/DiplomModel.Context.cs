@@ -33,8 +33,8 @@ namespace DiplomMVVM.MVVM.Models
         }
     
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<Автосамосвал> Автосамосвал { get; set; }
         public virtual DbSet<Бульдозер> Бульдозер { get; set; }
         public virtual DbSet<Грунт> Грунт { get; set; }
+        public virtual DbSet<Отчет> Отчет { get; set; }
     }
 }
